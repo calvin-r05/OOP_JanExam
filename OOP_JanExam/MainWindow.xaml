@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OOP_JanExam"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Loaded="Window_Loaded">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="170,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="en-ie" Text="Events"/></TextBlock>
         <TextBox x:Name="tbxSearch" HorizontalAlignment="Center" Margin="0,110,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>

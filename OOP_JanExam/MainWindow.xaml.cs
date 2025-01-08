@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Runtime.Intrinsics.X86;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -11,6 +12,7 @@ using System.Windows.Shapes;
 
 namespace OOP_JanExam
 {
+    //https://github.com/calvin-r05/OOP_JanExam.git
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -28,6 +30,20 @@ namespace OOP_JanExam
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Ticket t1 = new Ticket("Early Bird", 100m, 100);
+            Ticket t2 = new Ticket("Platinum", 150m, 100);
+
+            VipTicket vipT1 = new VipTicket("Ticket and Hotel Package", 150m, 100, "4* Hotel", 100m);
+            VipTicket vipT2 = new VipTicket("Weekend Ticket", 200m, 100, "with camping", 100m);
+            Event e1 = new Event("Oasis Croke Park", new DateTime(2025, 06, 20), new List<Ticket> {t1, vipT1}, EventType.Music);
+            Event e2 = new Event("Electric Picnic", new DateTime(2025, 08, 20), new List<Ticket> { t2, vipT2 }, EventType.Music);
+
+            
 
         }
     }

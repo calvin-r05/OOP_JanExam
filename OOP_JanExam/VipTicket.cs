@@ -11,5 +11,11 @@ namespace OOP_JanExam
         public string AdditionalExtras { get; set; }
 
         public decimal AdditionalCost { get; set; }
+
+        public VipTicket(string name, decimal price, int availableTickets, string additionalExtras, decimal additionalCost) : base(name, price, availableTickets)
+        {
+            AdditionalExtras = additionalExtras;
+            AdditionalCost = additionalCost;
+        }
     }
 }
