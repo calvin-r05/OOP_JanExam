@@ -22,6 +22,7 @@ namespace OOP_JanExam
         List<Ticket> tickets = new List<Ticket>();
         List<Event> events = new List<Event>();
         List<Ticket> relatedTickets = new List<Ticket>();
+        List<Event> relatedEvents = new List<Event> ();
         public MainWindow()
         {
             InitializeComponent();
@@ -29,7 +30,15 @@ namespace OOP_JanExam
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            lbxEvents.ItemsSource = null;
+            relatedEvents.Clear();
+            foreach (Event event1 in events)
+            {
+                //if (event1.Name[0] == tbxSearch.Text)
+            }
+        
 
+        
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
