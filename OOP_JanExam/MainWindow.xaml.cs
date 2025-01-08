@@ -1,4 +1,5 @@
 ﻿using System.Runtime.Intrinsics.X86;
+using System.Security.Principal;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,6 +19,9 @@ namespace OOP_JanExam
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Ticket> tickets = new List<Ticket>();
+        List<Event> events = new List<Event>();
+        List<Ticket> relatedTickets = new List<Ticket>();
         public MainWindow()
         {
             InitializeComponent();
@@ -43,8 +47,47 @@ namespace OOP_JanExam
             Event e1 = new Event("Oasis Croke Park", new DateTime(2025, 06, 20), new List<Ticket> {t1, vipT1}, EventType.Music);
             Event e2 = new Event("Electric Picnic", new DateTime(2025, 08, 20), new List<Ticket> { t2, vipT2 }, EventType.Music);
 
-            
 
+            events.Add(e1);
+            events.Add(e2);
+            lbxEvents.ItemsSource = events;
+
+
+
+            
         }
+
+        private void lbxEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            lbxTickets.ItemsSource = null;
+            relatedTickets.Clear();
+            Event selectedEvent = lbxEvents.SelectedItem as Event;
+
+            if (selectedEvent != null)
+            {
+                foreach (Ticket ticket in selectedEvent.Tickets)
+                {
+                    relatedTickets.Add(ticket);
+                }
+                lbxTickets.ItemsSource = relatedTickets;
+               //UpdateDisplay(selectedEvent);
+
+
+
+            }
+        }
+
+        private void UpdateDisplay(Event selectedEvent)
+        {
+            
+            if (selectedEvent != null)
+            {
+                foreach (Ticket ticket in selectedEvent.Tickets)
+                {
+                    lbxTickets.Items.Add(ticket);
+                }
+            }
+        }
+
     }
 }

@@ -8,10 +8,10 @@
         Title="MainWindow" Height="450" Width="800"
         Loaded="Window_Loaded">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="170,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="en-ie" Text="Events"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="64,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="en-ie" Text="Events"/></TextBlock>
         <TextBox x:Name="tbxSearch" HorizontalAlignment="Center" Margin="0,110,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="575,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="en-ie" Text="Tickets"/></TextBlock>
-        <ListBox x:Name="lbxEvents" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="161,144,498,73" RenderTransformOrigin="0.5,0.5">
+        <ListBox x:Name="lbxEvents" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="64,144,498,73" RenderTransformOrigin="0.5,0.5" SelectionChanged="lbxEvents_SelectionChanged">
             <ListBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -21,7 +21,7 @@
                 </TransformGroup>
             </ListBox.RenderTransform>
         </ListBox>
-        <ListBox x:Name="lbxTickets" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="425,144,98,73" RenderTransformOrigin="0.5,0.5">
+        <ListBox x:Name="lbxTickets" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="353,144,17,73" RenderTransformOrigin="0.5,0.5">
             <ListBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

@@ -16,6 +16,12 @@ namespace OOP_JanExam
         {
             AdditionalExtras = additionalExtras;
             AdditionalCost = additionalCost;
+            Price += AdditionalCost;
+        }
+
+        public override string ToString()
+        {
+            return $"{Name} - {Price.ToString("c")} [AVAILABLE - ({AdditionalExtras}) {AvailableTickets}]";
         }
     }
 }

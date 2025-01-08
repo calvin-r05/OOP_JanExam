@@ -8,6 +8,7 @@ namespace OOP_JanExam
 {
     internal class Ticket
     {
+        
         public string Name { get; set; }
 
         public decimal Price { get; set; }
@@ -19,6 +20,11 @@ namespace OOP_JanExam
             Name = name;
             Price = price;
             AvailableTickets = availableTickets;
+        }
+
+        public override string ToString()
+        {
+            return $"{Name} - {Price.ToString("c")}[AVAILABLE - {AvailableTickets}]";
         }
     }
 }
