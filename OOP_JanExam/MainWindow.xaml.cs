@@ -34,9 +34,20 @@ namespace OOP_JanExam
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Ticket selectedTicket = lbxTickets.SelectedItem as Ticket;
+            if (selectedTicket != null)
+            {
+                if (int.TryParse(tbxNoOfTickets.Text, out int noOfTickets))
+                {
+                    if (noOfTickets != null && selectedTicket.AvailableTickets >= noOfTickets)
+                    {
+                        selectedTicket.AvailableTickets -= noOfTickets;
+                        UpdateTickets();
+                        tbxSuccess.Text = $"Success! {noOfTickets} tickets have been purchased!";
+                    }
+                }
+            }
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Ticket t1 = new Ticket("Early Bird", 100m, 100);
@@ -59,6 +70,11 @@ namespace OOP_JanExam
 
         private void lbxEvents_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            UpdateTickets();
+        }
+
+        private void UpdateTickets()
+        {
             lbxTickets.ItemsSource = null;
             relatedTickets.Clear();
             Event selectedEvent = lbxEvents.SelectedItem as Event;
@@ -70,24 +86,7 @@ namespace OOP_JanExam
                     relatedTickets.Add(ticket);
                 }
                 lbxTickets.ItemsSource = relatedTickets;
-               //UpdateDisplay(selectedEvent);
-
-
-
             }
         }
-
-        private void UpdateDisplay(Event selectedEvent)
-        {
-            
-            if (selectedEvent != null)
-            {
-                foreach (Ticket ticket in selectedEvent.Tickets)
-                {
-                    lbxTickets.Items.Add(ticket);
-                }
-            }
-        }
-
     }
 }
