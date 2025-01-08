@@ -28,6 +28,8 @@ namespace OOP_JanExam
             InitializeComponent();
         }
 
+
+        //I ran out of time for q1(k)
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             lbxEvents.ItemsSource = null;
